@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<div align="right"><%= image_tag(@idea.picture_url, :width => 400) if @idea.picture.present? %></div>
+
+<h2><%= @idea.product %></h2>
+<p>by [[Company Name]]</p>
+<p>Submitted: <%= @idea.created_at %></p>
+
+<p>
+  <strong>API PDE Code / Product Code:</strong>
+  <%= @idea.code %>
+</p>
+
+<p>
+  <strong>EAN - Barcode:</strong>
+  <%= @idea.barcode %>
+</p>
+
+<p>
+  <strong>MOQ for Discount or Deal:</strong>
+  <%= @idea.moq %>
+</p>
+
+<p>
+  <strong>Product Discount or Deal:</strong>
+  <%= @idea.deal %>
+</p>
+
+<p>
+  <strong>RRP:</strong>
+  <%= @idea.rrp %>
+</p>
+
+<p>
+  <strong>Youtube:</strong>
+  <%= @idea.youtube %>
+</p>
+
+<p>
+  <strong>Web:</strong>
+  <%= @idea.web %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @idea.comments %>
+</p>
+
+<%= link_to 'Edit', edit_idea_path(@idea) %> |
+<%= link_to 'Back', ideas_path %>

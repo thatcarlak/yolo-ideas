@@ -1,0 +1,51 @@
+<h1>Product Submissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Product</th>
+      <th>Code</th>
+      <!-- Hide Feilds
+      <th>Barcode</th>
+      <th>Moq</th>
+      <th>Deal</th>
+      <th>Rrp</th>
+      <th>Youtube</th>
+      <th>Web</th>
+      <th>Comments</th>
+      -->
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= image_tag(idea.picture_url, :width => 100) if idea.picture.present? %></td>
+        <td><%= idea.product %></td>
+        <td><%= idea.code %></td>
+        <!-- Hide Fields
+        <td><%= idea.barcode %></td>
+        <td><%= idea.moq %></td>
+        <td><%= idea.deal %></td>
+        <td><%= idea.rrp %></td>
+        <td><%= idea.youtube %></td>
+        <td><%= idea.web %></td>
+        <td><%= idea.comments %></td>
+        -->
+        <td><%= link_to content_tag(:i,nil, :class=>"fa fa-search"), idea %></td>
+        <td><%= link_to content_tag(:i,nil, :class=>"fa fa-edit"), edit_idea_path(idea) %></td>
+        <td><%= link_to content_tag(:i,nil, :class=>"fa fa-trash"), idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Info' %>
+
+<br>
+
+<%= link_to 'New Idea', new_idea_path %>
